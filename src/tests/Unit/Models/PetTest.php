@@ -10,7 +10,7 @@ use Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
- * @package App\Test
+ * @package App\Unit\Test
  */
 class PetTest extends TestCase
 {

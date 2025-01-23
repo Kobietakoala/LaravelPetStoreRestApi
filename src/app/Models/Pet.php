@@ -14,21 +14,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $name
  * @property json&string $photoUrls
  * @property ?Category $category
- * @property Array[Tag]|null $tag
+ * @property Array[Tag]|null $tags
  * @property StatusEnum&string|null $status
  */
 class Pet extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['id', 'name', 'photoUrls', 'category', 'status', 'tag'];
+    protected $fillable = ['id', 'name', 'photoUrls', 'category', 'status', 'tags'];
 
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function tag(): BelongsToMany
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
