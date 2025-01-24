@@ -27,7 +27,7 @@ class PetFactory extends Factory
             'photoUrls' => [fake()->url()],
             'status' => null,
             'category' => null,
-            'tag' => null
+            'tags' => null
         ];
     }
 
@@ -55,7 +55,7 @@ class PetFactory extends Factory
     public function withTags(): static
     {
         return $this->afterMaking(function (Pet $pet) {
-            $pet->tag = Tag::factory()->count(3)->make();
+            $pet->tags = Tag::factory()->count(3)->make();
         });
     }
 }

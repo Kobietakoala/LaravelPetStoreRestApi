@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * 
  * @property ?int $id
  * @property string $name
- * @property json&string $photoUrls
+ * @property array&string $photoUrls
  * @property ?Category $category
  * @property Array[Tag]|null $tags
  * @property StatusEnum&string|null $status
@@ -31,12 +31,5 @@ class Pet extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'photoUrls' => 'array',
-        ];
     }
 }

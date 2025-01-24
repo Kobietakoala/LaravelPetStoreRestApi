@@ -6,9 +6,6 @@ use App\DTO\PetStoreDTO;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
-/**
- * @package App\Unit\Test
- */
 class PetStoreDTOTest extends TestCase
 {
     #[DataProvider('apiResponseDataProvider')]
@@ -22,7 +19,6 @@ class PetStoreDTOTest extends TestCase
         $this->assertSame($apiResponse['status'], $dto->status);
         $this->assertSame($apiResponse['tags'], $dto->tags);
         $this->assertSame($apiResponse['category'], $dto->category);
-
     }
 
     #[DataProvider('apiPayloadDataProvider')]
@@ -36,10 +32,10 @@ class PetStoreDTOTest extends TestCase
         $this->assertSame($payload['status'], $dto->status);
         $this->assertSame($payload['tags'], $dto->tags);
         $this->assertSame($payload['category'], $dto->category);
-
     }
 
-    public static function apiResponseDataProvider(): array {
+    public static function apiResponseDataProvider(): array
+    {
         return [
             'simple' => [
                 [
@@ -63,20 +59,21 @@ class PetStoreDTOTest extends TestCase
                     'status' => 'available',
                     'tags' => [
                         [
-                            'id'=>fake()->randomNumber(), 
-                            'name'=>fake()->name()
+                            'id' => fake()->randomNumber(),
+                            'name' => fake()->name()
                         ]
                     ],
                     'category' => [
-                        'id'=>fake()->randomNumber(), 
-                        'name'=>fake()->name()
+                        'id' => fake()->randomNumber(),
+                        'name' => fake()->name()
                     ]
                 ]
             ]
         ];
     }
 
-    public static function apiPayloadDataProvider(): array {
+    public static function apiPayloadDataProvider(): array
+    {
         return [
             'simple' => [new PetStoreDTO(
                 fake()->name(), // name
@@ -89,13 +86,13 @@ class PetStoreDTOTest extends TestCase
                 'available', // status
                 [
                     [
-                        'id'=>fake()->randomNumber(), 
-                        'name'=>fake()->name()
+                        'id' => fake()->randomNumber(),
+                        'name' => fake()->name()
                     ]
                 ], // tags
                 [
-                    'id'=>fake()->randomNumber(), 
-                    'name'=>fake()->name()
+                    'id' => fake()->randomNumber(),
+                    'name' => fake()->name()
                 ] // category
             )],
         ];

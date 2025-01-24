@@ -9,12 +9,9 @@ use App\Models\Tag;
 use Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @package App\Unit\Test
- */
 class PetTest extends TestCase
 {
- 
+
     #[DataProvider('petDataProvider')]
     public function test_CanCreatePetModel(string $option, Pet $pet): void
     {
@@ -22,8 +19,8 @@ class PetTest extends TestCase
         $this->assertIsString($pet->name);
         $this->assertIsArray($pet->photoUrls);
 
-        
-        switch($option) {
+
+        switch ($option) {
             case 'withId':
                 $this->assertIsInt($pet->id);
                 break;
@@ -36,14 +33,13 @@ class PetTest extends TestCase
                 $this->assertInstanceOf(Category::class, $pet->category);
                 break;
             case 'withTags':
-                $this->assertIsIterable($pet->tag);
+                $this->assertIsIterable($pet->tags);
 
-                foreach($pet->tag as $tag) {
+                foreach ($pet->tags as $tag) {
                     $this->assertInstanceOf(Tag::class, $tag);
                 }
                 break;
         }
-        
     }
 
     public static function petDataProvider(): array

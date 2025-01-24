@@ -17,6 +17,12 @@ class PetStoreDTO
         public ?array $category = null,
     ) {} 
 
+    /**
+     * Map PetStoreApiClient response to PetStoreDto
+     *
+     * @param array $data
+     * @return self
+     */
     public static function fromApiResponse(array $data): self
     {
         return new self(
@@ -29,6 +35,11 @@ class PetStoreDTO
         );
     }
 
+    /**
+     * Map PetStoreDto to PetStoreApiClient payload
+     *
+     * @return array
+     */
     public function toApiPayload(): array
     {
         return [
