@@ -34,5 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'petstore_api' => [
+        'base_url' => env('PETSTORE_API_BASE_URL'),
+        'username' => env('PETSTORE_API_USERNAME'),
+        'password' => env('PETSTORE_API_PASSWORD'),
+    ]
 ];
