@@ -15,7 +15,8 @@
 ### Uruchomienie aplikacji
 1. Zmień .env.example to .env
 2. Uruchom komendę ```docker compose build```
-3. Przejdź do storny http://localhost
+3. Następnie ```docker compose up -d```
+4. Przejdź do storny http://localhost
 
 Jeżeli wyskakiwałby byłąd "access Forbidden"
 ```
