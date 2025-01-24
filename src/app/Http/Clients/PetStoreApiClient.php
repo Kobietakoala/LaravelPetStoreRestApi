@@ -33,7 +33,7 @@ class PetStoreApiClient implements PetStoreApiClientInterface
 
         if ($response->failed()) {
             $err = $response->json();
-            throw new PetStoreApiClientException($err['message'], $response->status());
+            throw new PetStoreApiClientException($err['message'] ?? "", $response->status());
         }
 
         return PetStoreDTO::fromApiResponse($response->json());
@@ -51,7 +51,7 @@ class PetStoreApiClient implements PetStoreApiClientInterface
 
         if ($response->failed()) {
             $err = $response->json();
-            throw new PetStoreApiClientException($err['message'], $response->status());
+            throw new PetStoreApiClientException($err['message'] ?? "", $response->status());
         }
 
         return PetStoreDTO::fromApiResponse($response->json());
@@ -69,7 +69,7 @@ class PetStoreApiClient implements PetStoreApiClientInterface
 
         if ($response->failed()) {
             $err = $response->json();
-            throw new PetStoreApiClientException($err['message'], $response->status());
+            throw new PetStoreApiClientException($err['message'] ?? "", $response->status());
         }
 
         return PetStoreDTO::fromApiResponse($response->json());
@@ -87,7 +87,7 @@ class PetStoreApiClient implements PetStoreApiClientInterface
 
         if ($response->failed()) {
             $err = $response->json();
-            throw new PetStoreApiClientException($err['message'], $response->status());
+            throw new PetStoreApiClientException($err['message'] ?? "", $response->status());
         }
     }
 }

@@ -63,6 +63,38 @@ async function sendForm(event, formId, method, url) {
         alert(`Error: ${error.message}`);
     }
 }
+
+function sendGetRequest() {
+    const petId = document.getElementById('showId').value;
+
+    if (!petId) {
+        alert('Please provide a Pet ID.');
+        return;
+    }
+
+    // Budujemy URL
+    const url = `api/pet/${petId}`;
+
+    // Wysyłamy żądanie GET
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+        },
+    })
+        .then(async (response) => {
+            if (response.ok) {
+                const result = await response.json();
+                alert(`Pet data: ${JSON.stringify(result)}`);
+            } else {
+                alert(`Error: ${response.status}`);
+            }
+        })
+        .catch((error) => {
+            alert(`Error: ${error.message}`);
+        });
+}
 </script>
 
 <body>
@@ -142,7 +174,7 @@ async function sendForm(event, formId, method, url) {
         <input type="number" id="destroyId" name="id" required>
         <br>
 
-        <button type="button" onclick="sendForm(event, 'destroyForm', 'DELETE', `api/pet/${document.getElementById('destroyId').value}`)">Delete Pet</button>
+        <button type="button" onclick="sendDeleteRequest()">Delete Pet</button>
     </form>
 
     <hr>
@@ -153,7 +185,7 @@ async function sendForm(event, formId, method, url) {
         <input type="number" id="showId" name="id" required>
         <br>
 
-        <button type="button" onclick="sendForm(event, 'showForm', 'GET', `api/pet/${document.getElementById('showId').value}`)">Show Pet</button>
+        <button type="button" onclick="sendGetRequest()">Show Pet</button>
     </form>
 </body>
 </html>
