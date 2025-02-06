@@ -12,6 +12,7 @@
     - [Models](src/app/Models) Modele
     - [Providers](src/app/Providers) Providers
     - [Services](src/app/Services) Serwisy
+    
 ### Uruchomienie aplikacji
 1. Zmień .env.example to .env
 2. Uruchom komendę ```docker compose build```
