@@ -5,7 +5,7 @@
         </label>
     </div>
     <div class="md:w-2/3">
-        @foreach ($options as $option)
+        @foreach ($optionsArray as $option)
         <div>
             <label class="inline-flex items-center">
                 <input type="checkbox" class="form-checkbox text-indigo-600">
