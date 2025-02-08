@@ -6,7 +6,7 @@
     </div>
     <div class="md:w-2/3">
         <div class="mt-2">
-            @foreach ($options as $option)
+            @foreach ($optionsArray as $option)
                 <label class="inline-flex items-center">
                     <input type="radio" class="form-radio text-indigo-600" name={{$name}} value={{$option['value']}}>
                     <span class="ml-2">{{$option['name']}}</span>

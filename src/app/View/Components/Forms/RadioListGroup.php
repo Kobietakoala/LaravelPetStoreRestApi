@@ -27,8 +27,7 @@ class RadioListGroup extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.radio-list-group')
-            ->with('options', $this->optionsArray);
+        return view('components.forms.radio-list-group');
     }
 
     private function chosseOptionsArray(): void
@@ -40,7 +39,13 @@ class RadioListGroup extends Component
             'petCategories' => [
                 ['name' => 'Doggo', 'value' => 0],
                 ['name' => 'City Cat', 'value'  => 1],
-                ['name' => 'Hamster Bos', 'value'  => 2],
+                ['name' => 'Hamster Boss', 'value'  => 2],
+                ['name' => 'Grredy Housefly', 'value'  => 3],
+            ],
+            'petStatuses' => [
+                ['name'=> 'Available', 'value' => 'available'],
+                ['name'=> 'Pending', 'value' => 'pending'],
+                ['name'=> 'Sold', 'value' => 'sold'],
             ],
             default => []
         };
