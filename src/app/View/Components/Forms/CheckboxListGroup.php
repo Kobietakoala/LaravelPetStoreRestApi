@@ -8,17 +8,18 @@ use Illuminate\View\Component;
 
 class CheckboxListGroup extends Component
 {
+    public array $optionsArray = [];
+
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $label,
         public string $name,
-        public array $options,
+        public string $optionListName,
         public ?string $description,
-    )
-    {
-        //
+    ) {
+        $this->chosseOptionsArray();
     }
 
     /**
@@ -27,5 +28,21 @@ class CheckboxListGroup extends Component
     public function render(): View|Closure|string
     {
         return view('components.forms.checkbox-list-group');
+    }
+
+    private function chosseOptionsArray(): void
+    {
+        /**
+         * @todo wynieść gdzieś ten match
+         */
+        $this->optionsArray = match ($this->optionListName) {
+            'petTags' => [
+                ['name' => 'Super Cute', 'value' => 0],
+                ['name' => 'Clear Evil', 'value'  => 1],
+                ['name' => 'Week Boss', 'value'  => 2],
+                ['name' => 'Lucky Monster', 'value'  => 3],
+            ],
+            default => []
+        };
     }
 }
