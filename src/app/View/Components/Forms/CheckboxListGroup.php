@@ -14,6 +14,7 @@ class CheckboxListGroup extends Component
      * Create a new component instance.
      */
     public function __construct(
+        public string $id, 
         public string $label,
         public string $name,
         public string $optionListName,

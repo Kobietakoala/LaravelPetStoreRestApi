@@ -7,6 +7,7 @@
     <title>Pet Store</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/js/app.js', 'resources/css/app.css'])
+
     <style>
         .max-h-64 {
             max-height: 16rem;
@@ -31,17 +32,16 @@
 
             <div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
 
-                <form action="api/pet">
-                    @method('POST')
-
-                    <x-forms.text-field id="name" label="Pet Name:"/>
-                    <x-forms.text-field id="photo_urls" label="Photo URLs (comma separated):" description="http://somePhoto.com" />
-                    <x-forms.radio-list-group id="pet_category" label="Pet category:" name="pet_category" optionListName="petCategories"/>
-                    <x-forms.checkbox-list-group id="pet_tags" label="Tags:" name="pet_tags"  optionListName="petTags"/>
-                    <x-forms.radio-list-group id="pet_statua" label="Pet status:" name="pet_status" optionListName="petStatuses"/>
+                <form id="pet-form">
+                    <input type="hidden" id="id" name="id">
+                    <x-forms.text-field label="Pet Name:" name="name" id="name" />
+                    <x-forms.text-field id="photo_urls" name="photoUrls" label="Photo URLs (comma separated):" description="http://yundt.com/tempora.html" />
+                    <x-forms.radio-list-group id="pet_category" label="Pet category:" name="category" optionListName="petCategories"/>
+                    <x-forms.checkbox-list-group id="pet_tags" label="Tags:" name="tags"  optionListName="petTags"/>
+                    <x-forms.radio-list-group id="pet_status" label="Pet status:" name="status" optionListName="petStatuses"/>
                     <div class="pt-8">
-                        <x-forms.buttons.basic />
-                        <x-forms.buttons.additonal textType='1'/>
+                        <x-forms.buttons.basic id="sendPet" />
+                        <x-forms.buttons.additonal id="cancel" textType='1'/>
                     </div>
                 </form>
 

@@ -14,6 +14,7 @@ class RadioListGroup extends Component
      * Create a new component instance.
      */
     public function __construct(
+        public string $id, 
         public string $label,
         public string $name,
         public string $optionListName,
@@ -37,10 +38,10 @@ class RadioListGroup extends Component
          */
         $this->optionsArray = match ($this->optionListName) {
             'petCategories' => [
-                ['name' => 'Doggo', 'value' => 0],
-                ['name' => 'City Cat', 'value'  => 1],
-                ['name' => 'Hamster Boss', 'value'  => 2],
-                ['name' => 'Grredy Housefly', 'value'  => 3],
+                ['name' => 'Doggo', 'value' => 'Doggo'],
+                ['name' => 'City Cat', 'value'  => 'City Cat'],
+                ['name' => 'Hamster Boss', 'value'  => 'Hamster Boss'],
+                ['name' => 'Grredy Housefly', 'value'  => 'Grredy Housefly'],
             ],
             'petStatuses' => [
                 ['name'=> 'Available', 'value' => 'available'],

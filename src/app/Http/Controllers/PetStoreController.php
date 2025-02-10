@@ -35,8 +35,12 @@ class PetStoreController
             return $this->getResponseFromException($e);
         }
 
-
-        return new JsonResponse($pet->toArray(), Response::HTTP_CREATED);
+        /**
+         * @todo tofix
+         */
+        $pet = $pet->toArray();
+        $pet['id'] = (string) $pet['id']; // bigint
+        return new JsonResponse($pet, Response::HTTP_CREATED);
     }
 
     public function update(int $id, PetStoreRequest $request): JsonResponse
@@ -47,7 +51,12 @@ class PetStoreController
             return $this->getResponseFromException($e);
         }
 
-        return new JsonResponse($pet->toArray(), Response::HTTP_OK);
+        /**
+         * @todo tofix
+         */
+        $pet = $pet->toArray();
+        $pet['id'] = (string) $pet['id']; // bigint
+        return new JsonResponse($pet, Response::HTTP_OK);
     }
 
     public function destroy(int $id): JsonResponse

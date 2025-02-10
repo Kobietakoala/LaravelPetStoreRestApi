@@ -12,7 +12,8 @@ class TextField extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $id,
+        public string $id, 
+        public string $name,
         public string $label,
         public ?string $description
     )

@@ -29,7 +29,7 @@ class PetStoreRequest extends FormRequest
             'photoUrls.*' => 'url',
             'status' => [Rule::enum(StatusEnum::class), 'nullable'],
             'category' => 'nullable|array',
-            'tag' => 'nullable|array'
+            'tags' => 'nullable|array'
         ];
     }
 }
