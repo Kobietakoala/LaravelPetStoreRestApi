@@ -17,7 +17,7 @@ enum StatusEnum: string
 		return match($this){
 			self::AVAILABLE => 'available',
 			self::PENDING => 'pending',
-			self::SOLD => 'available'
+			self::SOLD => 'sold'
 		};
 	}
 }
