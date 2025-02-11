@@ -65,7 +65,7 @@ services:
         volumes:
             - ./src:/var/www/html
         working_dir: /var/www/html
-        entrypoint: ['npm', 'install', 'npm', 'build', 'npm', 'run dev']
+        entrypoint: ['npm', 'install', 'npm', 'build']
 
 
 
