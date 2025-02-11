@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Forms;
 
+use App\Mappers\EnumToOptionInputListMapper;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -43,11 +44,7 @@ class RadioListGroup extends Component
                 ['name' => 'Hamster Boss', 'value'  => 'Hamster Boss'],
                 ['name' => 'Grredy Housefly', 'value'  => 'Grredy Housefly'],
             ],
-            'petStatuses' => [
-                ['name'=> 'Available', 'value' => 'available'],
-                ['name'=> 'Pending', 'value' => 'pending'],
-                ['name'=> 'Sold', 'value' => 'sold'],
-            ],
+            'petStatuses' => EnumToOptionInputListMapper::fromStatusEnum(),
             default => []
         };
     }

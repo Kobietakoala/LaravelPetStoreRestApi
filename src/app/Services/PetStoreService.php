@@ -28,7 +28,7 @@ class PetStoreService implements PetStoreServiceInterface
     public function new(array $data): Pet
     {
         $petStoreDto = new PetStoreDTO(...$data);
-
+        
         try {
             $pet = $this->petStoreApiClient->postPet($petStoreDto);
         } catch (PetStoreApiClientException $apiException) {
