@@ -34,16 +34,8 @@ class RadioListGroup extends Component
 
     private function chosseOptionsArray(): void
     {
-        /**
-         * @todo wynieść gdzieś ten match
-         */
         $this->optionsArray = match ($this->optionListName) {
-            'petCategories' => [
-                ['name' => 'Doggo', 'value' => 'Doggo'],
-                ['name' => 'City Cat', 'value'  => 'City Cat'],
-                ['name' => 'Hamster Boss', 'value'  => 'Hamster Boss'],
-                ['name' => 'Grredy Housefly', 'value'  => 'Grredy Housefly'],
-            ],
+            'petCategories' => EnumToOptionInputListMapper::fromExampleCategoriesDataEnum(),
             'petStatuses' => EnumToOptionInputListMapper::fromStatusEnum(),
             default => []
         };
