@@ -13,10 +13,7 @@ class Blockquote extends Component
      */
     public function __construct(
         public string $text
-    )
-    {
-        //
-    }
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

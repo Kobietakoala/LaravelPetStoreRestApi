@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Forms;
 
+use App\Mappers\EnumToOptionInputListMapper;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -33,16 +34,8 @@ class CheckboxListGroup extends Component
 
     private function chosseOptionsArray(): void
     {
-        /**
-         * @todo wynieść gdzieś ten match
-         */
         $this->optionsArray = match ($this->optionListName) {
-            'petTags' => [
-                ['name' => 'Super Cute', 'value' => 0],
-                ['name' => 'Clear Evil', 'value'  => 1],
-                ['name' => 'Week Boss', 'value'  => 2],
-                ['name' => 'Lucky Monster', 'value'  => 3],
-            ],
+            'petTags' => EnumToOptionInputListMapper::fromExampleTagsDataEnum(),
             default => []
         };
     }

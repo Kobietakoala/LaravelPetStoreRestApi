@@ -53,7 +53,7 @@ class PetStoreApiClient implements PetStoreApiClientInterface
             $err = $response->json();
             throw new PetStoreApiClientException($err['message'] ?? "", $response->status());
         }
-
+        
         return PetStoreDTO::fromApiResponse($response->json());
     }
 

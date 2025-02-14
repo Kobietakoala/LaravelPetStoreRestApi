@@ -4,12 +4,12 @@
             {{$label}}
         </label>
     </div>
-    <div class="md:w-2/3">
+    <div id={{$id}} class="md:w-2/3">
         @foreach ($optionsArray as $option)
         <div>
             <label class="inline-flex items-center">
-                <input id={{$id}} name={{$name}} type="checkbox" class="form-checkbox text-indigo-600" value="{{$option['name']}}">
-                <span class="ml-2">{{$option['name']}}</span>
+                <input name={{$name}} type="checkbox" class="form-checkbox text-indigo-600" value="{{$option->value}}">
+                <span class="ml-2">{{$option->value}}</span>
             </label>
         </div>
         @endforeach

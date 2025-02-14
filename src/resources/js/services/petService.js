@@ -17,16 +17,16 @@ export async function createOrUpdatePet(event) {
     } : null;
 
     try {
+        document.getElementById('modal-loading').classList.remove('hidden')
         const response = await apiRequest(
             petData.id ? apiRoutes.updatePet(petData.id) : apiRoutes.createPet(),
             petData.id ? 'PUT' : 'POST',
             petData
         );
-
-        console.log('Nowy pet został utworzony:', response);
         addPetToStorage(response)
         updatePetsList()
+        document.getElementById('modal-loading').classList.add('hidden')
     } catch (error) {
-        console.error('Błąd podczas tworzenia pet:', error);
+        console.error('Błąd podczas tworzenia pet:', JSON.stringify(error));
     }
 }

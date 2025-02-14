@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Forms;
 
+use App\Mappers\EnumToOptionInputListMapper;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -33,21 +34,9 @@ class RadioListGroup extends Component
 
     private function chosseOptionsArray(): void
     {
-        /**
-         * @todo wynieść gdzieś ten match
-         */
         $this->optionsArray = match ($this->optionListName) {
-            'petCategories' => [
-                ['name' => 'Doggo', 'value' => 'Doggo'],
-                ['name' => 'City Cat', 'value'  => 'City Cat'],
-                ['name' => 'Hamster Boss', 'value'  => 'Hamster Boss'],
-                ['name' => 'Grredy Housefly', 'value'  => 'Grredy Housefly'],
-            ],
-            'petStatuses' => [
-                ['name'=> 'Available', 'value' => 'available'],
-                ['name'=> 'Pending', 'value' => 'pending'],
-                ['name'=> 'Sold', 'value' => 'sold'],
-            ],
+            'petCategories' => EnumToOptionInputListMapper::fromExampleCategoriesDataEnum(),
+            'petStatuses' => EnumToOptionInputListMapper::fromStatusEnum(),
             default => []
         };
     }
