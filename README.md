@@ -18,6 +18,7 @@
 2. Uruchom komendę ```docker compose build```, ```docker compose up -d```, ```npm install```, ```npm build```, ```npm run dev```
 3. Przejdź do storny http://localhost
 
+
 Jeżeli wyskakiwałby byłąd "access Forbidden"
 ```
   docker compose run --rm php /bin/sh
