@@ -1,22 +1,29 @@
 export function addPetToStorage(newPet) {
     const petsJson = localStorage.getItem('pets')
     let pets = petsJson === null ? [] : JSON.parse(petsJson)
-    
+
     newPet.photoUrls = newPet.photoUrls.join(', ')
-    if(newPet.tags) {
+    if (newPet.tags) {
         newPet.tags = newPet.tags.map((tag) => { return tag.name })
     }
-    
+
     if (pets.length === 0 || !getPetFromStorage(newPet.id)) {
-        console.log('new')
-        pets.push(newPet)
+        pets.push({
+            id: newPet.id,
+            name: newPet.name
+        })
     } else {
-        console.log('update')
         pets = pets.map((pet) => {
             if (pet.id === newPet.id) {
-                return newPet
+                return {
+                    id: newPet.id,
+                    name: newPet.name
+                }
             }
-            return pet;
+            return {
+                id: pet.id,
+                name: pet.name
+            };
         })
     }
 

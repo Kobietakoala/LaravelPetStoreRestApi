@@ -24,6 +24,8 @@ Jeżeli wyskakiwałby byłąd "access Forbidden"
   chown -R laravel:laravel /var/www/html
 ```
 
+Jeżeli występuje błąd "failed to solve: archive/tar: unknown file mode ?rwxr-xr-x" nalezy usunąć `node_modules` i `public/build`
+
 Dostęp do commandLine
 ```docker compose run --rm php /bin/sh```
 
